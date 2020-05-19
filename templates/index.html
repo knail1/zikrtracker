@@ -12,7 +12,7 @@
     <body>
 
         <h2>Zikr Tracker App</h2>
-        
+
 
         
         
@@ -24,6 +24,16 @@
 
 
             </script>
+
+            <br>
+
+            {% for d in data %}
+                <p>{{ d[0] }}</p>
+                <p>{{ d[1] }}</p>
+                <p>{{ d[2] }}</p>
+            {% endfor %}    
+
+            
 
 
         </p>
