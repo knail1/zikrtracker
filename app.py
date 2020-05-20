@@ -21,10 +21,22 @@ try:
     cur = conn.cursor()
 
     print("database connected")
-except:
-    print("Nah")
+    query = "INSERT INTO testdb (id, date, name, comment) VALUES (2, NOW(), 'zakir', 'second test yo')"
 
-@app.route("/")
+    cur.execute(query)
+    print('query successful')
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    print("committed and closed")
+except:
+    print("something went WRONG")
+
+
+
+
 def home():
 
     return render_template('index.html', data=data)
