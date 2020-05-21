@@ -8,15 +8,16 @@
     
     
     </head>
-
+    <style>
+        h1 {text-align: center;}
+    </style>
     <body>
-
-        <h2>Zikr Tracker App</h2>
+        <h1 style = 'color:green'>Zikr Tracker App</h1>
 
 
         
         
-        <h1>Current Date and Time</h1>
+        <h3>Current Date and Time</h3>
 
         <p id="time">
             <script>
@@ -26,19 +27,19 @@
             </script>
 
             <br>
-
-            {% for d in data %}
-                <p>{{ d[0] }}</p>
-                <p>{{ d[1] }}</p>
-                <p>{{ d[2] }}</p>
-            {% endfor %}    
-
             
 
 
         </p>
+        <form action="/" method = 'post'>
+            <input placeholder="Name" name = 'name'>
+            <input placeholder='Comment' name="comment">
+            <input type="submit" value="Submit">
         
-	
+        </form>       
+        {% for post in posts %}
+        <div>{{ post[2] + ' ' + post[3] }}</div>
+        {% endfor %}
     
 
 
