@@ -12,6 +12,11 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = 'postgres://kmdvxvuvocjhha:ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3@ec2-18-209-187-54.compute-1.amazonaws.com:5432/d8hto9mvtubuln'
 
 
+@app.route('/clear')
+def clear():
+    delete_table()
+    return redirect(url_for('index'))
+
 
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -24,6 +29,7 @@ def index():
         name = request.form.get('name')
         date = request.form.get('date')
         comment = request.form.get('comment')
+        create_table()
         create_post(date, name, comment)
     posts = get_posts()
 
