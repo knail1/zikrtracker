@@ -10,6 +10,7 @@
     </head>
     <style>
         h1 {text-align: center;}
+        body {text-align: center;}
     </style>
     <body>
         <h1 style = 'color:green'>Zikr Tracker App</h1>
@@ -25,22 +26,22 @@
 
 
             </script>
-
-            <br>
-            
-
-
         </p>
         <form action="/" method = 'post'>
-            <input placeholder="Name" name = 'name'>
+            <input placeholder="Name" name ="name">
             <input placeholder='Comment' name="comment">
             <input type="submit" value="Submit">
         
         </form>       
+        
+        
+        
+        
+        <p>
         {% for post in posts %}
-        <div>{{ post[2] + ' ' + post[3] }}</div>
+        <div>{{ post[1] }} | {{ post[2].title() }} | {{ post[3] }}</div>
         {% endfor %}
-    
+        </p>
 
 
 
