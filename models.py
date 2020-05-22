@@ -1,5 +1,4 @@
 import psycopg2
-from app import app
 
 
 def create_table():
