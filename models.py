@@ -40,7 +40,7 @@ def create_table():
 def create_post(date, name, comment):
     conn = psycopg2.connect(    
             host = os.environ['HOST_NAME'],
-            database = 'd8hto9mvtubuln',
+            database = os.environ['DB'],
             user = os.environ['USERNAME'],
             password = os.environ['PASSWORD']
             port = os.environ['PORT']
