@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="styles.css">
         <title>Zikr Tracker</title>
-        
     
     
     
@@ -13,12 +13,12 @@
         body {text-align: center;}
     </style>
     <body>
-        <h1 style = 'color:green'>Zikr Tracker App</h1>
+        <u><h1 style = 'color:green'>Zikr Tracker App</h1></u>
 
 
         
         
-        <h3>Current Date and Time</h3>
+        <em><h3>Current Date and Time</h3></em>
 
         <p id="time">
             <script>
@@ -35,16 +35,20 @@
         </form>       
         <br>
         <br>
+        <div class ='button'>
+            <button class='button'>Delete Table</button>    
+        </div>
 
-        <a href="/clear"><input type="button" value="Delete Table"></a>
         
         
         
+        <b>
         <p>
         {% for post in posts %}
         <div>{{ post[1] }} | {{ post[2].title() }} | {{ post[3] }}</div>
         {% endfor %}
         </p>
+        </b>
 
 
 
