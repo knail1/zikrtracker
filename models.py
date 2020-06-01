@@ -7,11 +7,11 @@ import psycopg2
 
 def delete_table():
     conn = psycopg2.connect(    
-            host = 'ec2-18-209-187-54.compute-1.amazonaws.com',
+            host = os.environ['DB_HOST'],
             database = 'd8hto9mvtubuln',
-            user = 'kmdvxvuvocjhha',
-            password = 'ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port = 5432
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
     )
     cur = conn.cursor()
     cur.execute("DELETE FROM testdb")
@@ -24,11 +24,11 @@ def delete_table():
 def create_table():
 
     conn = psycopg2.connect(    
-            host = 'ec2-18-209-187-54.compute-1.amazonaws.com',
+            host = os.environ['DB_HOST'],
             database = 'd8hto9mvtubuln',
-            user = 'kmdvxvuvocjhha',
-            password = 'ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port = 5432
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
     )
     cur = conn.cursor()
     cur.execute('CREATE TABLE IF NOT EXISTS testdb (id BIGSERIAL PRIMARY KEY, date DATE NOT NULL, name VARCHAR(150) NOT NULL, comment VARCHAR(150) NOT NULL)')
@@ -40,11 +40,11 @@ def create_table():
 
 def create_post(date, name, comment):
     conn = psycopg2.connect(    
-            host = 'ec2-18-209-187-54.compute-1.amazonaws.com',
+            host = os.environ['DB_HOST'],
             database = 'd8hto9mvtubuln',
-            user = 'kmdvxvuvocjhha',
-            password = 'ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port = 5432
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
     )
     cur = conn.cursor()
     cur.execute("INSERT INTO testdb (date, name, comment) VALUES (%s, %s, %s)", ('NOW()', name, comment)) 
@@ -53,12 +53,12 @@ def create_post(date, name, comment):
     conn.close()
 
 def get_posts():
-    conn = psycopg2.connect(
-        host = 'ec2-18-209-187-54.compute-1.amazonaws.com',
-        database = 'd8hto9mvtubuln',
-        user = 'kmdvxvuvocjhha',
-        password = 'ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-        port = 5432
+    conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = 'd8hto9mvtubuln',
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
     )
     cur = conn.cursor()
     cur.execute("SELECT * FROM testdb")
