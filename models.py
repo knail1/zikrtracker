@@ -25,7 +25,6 @@ def create_post(date, name, comment):
 
 def get_posts():
     connect()
-    cur = conn.cursor()
     cur.execute("SELECT * FROM testdb")
     
     posts = cur.fetchall()
