@@ -3,13 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from models import *
 import psycopg2
+from connect import *
+
 
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+SQLACHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'os.environ['DATABASE_URL']
 
 
 @app.route('/clear')
