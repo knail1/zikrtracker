@@ -2,52 +2,62 @@
 <html>
     <head>
         <title>Zikr Tracker</title>
-        
-    
-    
-    
-    
+        <link rel="stylesheet" type="text/css" href="static/style.css">
     </head>
-    <style>
-        h1 {text-align: center;}
-        body {text-align: center;}
-    </style>
     <body>
-        <h1 style = 'color:green'>Zikr Tracker App</h1>
+        <div class="title">
+            <u>
+                <h1>Zikr Tracker App</h1>
+            </u>
+        </div>
+
+        
+        <div class ="body">
+           <em><h3>Current Date and Time</h3></em>
+
+            <p id="time">
+                <script>
+                    document.getElementById("time").innerHTML = Date();
+                </script>
+
+            </p>
+            <form action="/" method = 'post'>
+                <input placeholder='Comment' name="comment" required>
+                <br>
+                <br>
+                <button class="button logbutton" name='complete'>Log Zikr</button>
+                <br>
+                <br>
+                <br>
+            </form>       
+
+
+
+
+            <br>
+            <br>
+            <br>
+            <form action="/clear">
+                <div>
+                    <button onclick="delete_table()" class='button deletebutton'>Delete Table</button>    
+                </div>
+            </form>
 
 
         
         
-        <h3>Current Date and Time</h3>
-
-        <p id="time">
-            <script>
-                document.getElementById("time").innerHTML = Date();
-
-
-            </script>
-        </p>
-        <form action="/" method = 'post'>
-            <input placeholder="Name" name ="name">
-            <input placeholder='Comment' name="comment">
-            <input type="submit" value="Submit">
         
-        </form>       
-        <br>
-        <br>
-
-        <a href="/clear"><input type="button" value="Delete Table"></a>
-        
-        
-        
-        <p>
-        {% for post in posts %}
-        <div>{{ post[1] }} | {{ post[2].title() }} | {{ post[3] }}</div>
-        {% endfor %}
-        </p>
+            <b>
+            <p>
+            {% for post in posts %}
+            <div>{{ post[3] }} | {{ post[2].title() }} | {{ post[1] }}</div>
+            {% endfor %}
+            </p>
+            </b>
 
 
 
+        </div>
 
     </body>
 

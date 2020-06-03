@@ -14,7 +14,7 @@ def delete_table():
             port = 5432
     )
     cur = conn.cursor()
-    cur.execute("DELETE FROM testdb")
+    cur.execute("DELETE FROM zikr")
     conn.commit()
     conn.close()
 
@@ -31,14 +31,14 @@ def create_table():
             port = 5432
     )
     cur = conn.cursor()
-    cur.execute('CREATE TABLE IF NOT EXISTS testdb (id BIGSERIAL PRIMARY KEY, date DATE NOT NULL, name VARCHAR(150) NOT NULL, comment VARCHAR(150) NOT NULL)')
+    cur.execute("CREATE TABLE IF NOT EXISTS zikr (id BIGSERIAL PRIMARY KEY NOT NULL, date DATE NOT NULL, complete VARCHAR(100) NOT NULL, comment VARCHAR(150) NOT NULL)")
     conn.commit()
     conn.close()
 
 
 
 
-def create_post(date, name, comment):
+def create_post(date, complete, comment):
     conn = psycopg2.connect(    
             host = 'ec2-18-209-187-54.compute-1.amazonaws.com',
             database = 'd8hto9mvtubuln',
@@ -47,7 +47,7 @@ def create_post(date, name, comment):
             port = 5432
     )
     cur = conn.cursor()
-    cur.execute("INSERT INTO testdb (date, name, comment) VALUES (%s, %s, %s)", ('NOW()', name, comment)) 
+    cur.execute("INSERT INTO zikr (date, complete, comment) VALUES (%s, %s, %s)", ('NOW()', '1', comment)) 
     conn.commit()
 
     conn.close()
@@ -61,6 +61,9 @@ def get_posts():
         port = 5432
     )
     cur = conn.cursor()
-    cur.execute("SELECT * FROM testdb")
-    posts = cur.fetchall()
-    return posts
+    try:
+        cur.execute("SELECT * FROM zikr")
+        posts = cur.fetchall()
+        return posts
+    except:
+        create_table()

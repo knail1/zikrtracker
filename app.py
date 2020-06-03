@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy 
-from flask_cors import CORS
 from models import *
 import psycopg2
 
@@ -23,14 +22,14 @@ def clear():
 def index():
     
     if request.method == 'GET':
-        pass
+        create_table()
 
     if request.method == 'POST':
-        name = request.form.get('name')
+        complete = request.form.get('complete')
         date = request.form.get('date')
         comment = request.form.get('comment')
         create_table()
-        create_post(date, name, comment)
+        create_post(date, complete, comment)
     posts = get_posts()
 
     return render_template('index.html', posts=posts)
