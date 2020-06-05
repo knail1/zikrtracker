@@ -29,8 +29,30 @@ def delete_table():
     conn.close()
 
 
+def update_table(date):
+    try:
+        conn = psycopg2.connect(
+            host = 'ec2-18-209-187-54.compute-1.amazonaws.com',
+            database = 'd8hto9mvtubuln',
+            user = 'kmdvxvuvocjhha',
+            password = 'ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
+            port = 5432
+        )
+    except:
+        conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = 'd8hto9mvtubuln',
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+        )
+    cur = conn.cursor()
+    cur.execute("UPDATE zikr SET complete = '0' WHERE date = '{}'".format(date))
+    conn.commit()
+    conn.close()
 
-    
+
+
 def create_table():
 
     try:
@@ -75,10 +97,9 @@ def create_post(date, complete, comment):
             port = os.environ['DB_PORT']
         )
     cur = conn.cursor()
-    try:
-        cur.execute("INSERT INTO zikr (date, complete, comment) VALUES (%s, %s, %s)", (date, '1', comment)) 
-    except:
-        print('failed')
+
+    cur.execute("INSERT INTO zikr (date, complete, comment) VALUES (%s, %s, %s)", (date, '1', comment)) 
+
     conn.commit()
 
     conn.close()

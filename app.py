@@ -29,7 +29,11 @@ def index():
         date = request.form.get('date')
         comment = request.form.get('comment')
         create_table()
-        create_post(date, complete, comment)
+        try:
+            create_post(date, complete, comment)
+        except:
+            print('FUCKING FAILURE')
+            update_table(date)
     posts = get_posts()
 
     return render_template('index.html', posts=posts)
