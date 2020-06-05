@@ -9,6 +9,7 @@
 }
 .button {
     border: none;
+    background-color: green;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -17,12 +18,7 @@
     border-radius: 8px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
-form {
+form button {
     text-align: center;
-}
-.logbutton {
-    background-color: green; /* Green */
-}
-.deletebutton {
-    background-color: red;
+    color: green;
 }
