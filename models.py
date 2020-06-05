@@ -78,7 +78,7 @@ def create_post(date, complete, comment):
     try:
         cur.execute("INSERT INTO zikr (date, complete, comment) VALUES (%s, %s, %s)", (date, '1', comment)) 
     except:
-        print("Already logged for that day")
+        print('failed')
     conn.commit()
 
     conn.close()
