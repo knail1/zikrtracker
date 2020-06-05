@@ -22,29 +22,38 @@
                 </script>
 
             </p>
+
             <form action="/" method = 'post'>
+
+                <br>
+                <label for="date"><h3><strong>Choose Date</strong></h3></label><br>
+                <input type="date" id="date" name="date">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 <input placeholder='Comment' name="comment" required>
                 <br>
                 <br>
-                <button class="button" name='complete'>Log Zikr</button>
+                <br>
+                <br>
+                <div class = "logbutton">
+                    <button class="logbutton" name='complete'>Log Zikr</button>
+                </div>
                 <br>
                 <br>
                 <br>
             </form>       
 
-
-
-
             <br>
             <br>
             <br>
-            <!--
             <form action="/clear">
                 <div>
                     <button onclick="delete_table()" class='button deletebutton'>Delete Table</button>    
                 </div>
             </form>
-        
 
         
         
@@ -52,11 +61,10 @@
             <b>
             <p>
             {% for post in posts %}
-            <div>{{ post[3] }} | {{ post[2].title() }} | {{ post[1] }}</div>
+            <div>{{ post[0] }} | {{ post[2].title() }} | {{ post[1] }}</div>
             {% endfor %}
             </p>
             </b>
-        -->
 
 
         </div>

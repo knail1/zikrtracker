@@ -75,7 +75,10 @@ def create_post(date, complete, comment):
             port = os.environ['DB_PORT']
         )
     cur = conn.cursor()
-    cur.execute("INSERT INTO zikr (date, complete, comment) VALUES (%s, %s, %s)", ('NOW()', '1', comment)) 
+    try:
+        cur.execute("INSERT INTO zikr (date, complete, comment) VALUES (%s, %s, %s)", (date, '1', comment)) 
+    except:
+        print("Already logged for that day")
     conn.commit()
 
     conn.close()
