@@ -22,18 +22,25 @@
                 </script>
 
             </p>
-
             <form action="/" method = 'post'>
 
-                <br>
-                <label for="date"><h3><strong>Choose Date</strong></h3></label><br>
+                <label for="date"><h3><u><strong>Choose Date</strong></u></h3></label><br>
                 <input type="date" id="date" name="date">
                 <br>
                 <br>
                 <br>
+                <form action="/" method='get'>
+                    <button class='logbutton'>Check Zikr</button>
+                </form>
+                <br>
+                <p>
+                    {% for _ in selection %}
+                    <div>{{ selection[1] }}</div>
+                    {% endfor %}
+                </p>
                 <br>
                 <br>
-                <input placeholder='Comment' name="comment" required>
+                <input placeholder='Comment' name="comment">
                 <br>
                 <br>
                 <br>
@@ -45,7 +52,6 @@
                 <br>
                 <br>
             </form>       
-
             <br>
             <br>
             <br>
@@ -63,6 +69,8 @@
             {% for post in posts %}
             <div>{{ post[0] }} | {{ post[2].title() }} | {{ post[1] }}</div>
             {% endfor %}
+            </p>
+            <p>
             </p>
             </b>
 

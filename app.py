@@ -33,10 +33,11 @@ def index():
             create_post(date, complete, comment)
         except:
             print('FUCKING FAILURE')
-            update_table(date)
+    
     posts = get_posts()
 
     return render_template('index.html', posts=posts)
+
 
 
 
