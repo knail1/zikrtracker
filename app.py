@@ -28,11 +28,13 @@ def index():
         complete = request.form.get('complete')
         date = request.form.get('date')
         comment = request.form.get('comment')
+
         create_table()
+
         try:
             create_post(date, complete, comment)
         except:
-            print('FUCKING FAILURE')
+            print('failed')
     
     posts = get_posts()
 
