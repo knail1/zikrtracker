@@ -6,7 +6,7 @@
 .body {
     text-align: center;
 }
-.logbutton {
+.logbutton .checkbutton {
     border: none;
     background-color: green;
     color: white;

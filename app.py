@@ -23,6 +23,7 @@ def index():
     
     if request.method == 'GET':
         create_table()
+        date = request.form.get('date')
 
     if request.method == 'POST':
         complete = request.form.get('complete')
@@ -37,8 +38,9 @@ def index():
             print('failed')
     
     posts = get_posts()
+    results = show_status(date)
 
-    return render_template('index.html', posts=posts)
+    return render_template('index.html', posts=posts, results=results)
 
 
 

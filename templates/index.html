@@ -29,13 +29,13 @@
                 <br>
                 <br>
                 <br>
-                <form action="/" method='get'>
-                    <button class='logbutton'>Check Zikr</button>
-                </form>
+
                 <br>
                 <p>
-                    {% for _ in selection %}
-                    <div>{{ selection[1] }}</div>
+                    <h2>Latest Tracked Zikr</h2>
+                    {% for result in results %}
+                    <div>{{ result[0] }}</div>
+                    <div>{{ result[1] }}</div>
                     {% endfor %}
                 </p>
                 <br>
