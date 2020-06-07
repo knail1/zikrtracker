@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <title>Zikr Tracker</title>
-        <link rel="stylesheet" type="text/css" href="static/style.css">
     </head>
     <body>
         <div class="title">
@@ -35,7 +34,9 @@
                     {% endfor %}
                 </p>
                 <br><br>
-                <input placeholder='Comment' name="comment">
+                <div class='commenttext'>
+                    <input placeholder='Comment' name="comment">
+                </div>
                 <br><br><br><br>
                 <div class = "logbutton">
                     <button class="logbutton" name='complete'>Log Zikr</button>
