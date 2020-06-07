@@ -120,10 +120,40 @@ def show_status(date):
             port = os.environ['DB_PORT']
         )
     cur = conn.cursor()
-    cur.execute("SELECT * FROM zikr WHERE complete='1' ORDER BY date DESC LIMIT 1")
+    cur.execute("SELECT * FROM zikr WHERE complete='0' ORDER BY date DESC LIMIT 1")
     results = cur.fetchall()
     return results
+    conn.commit()
+    conn.close()
 
 
-def update_to_true():
-    pass
+def update_zikr(date):
+    try:
+        conn = psycopg2.connect(
+            host = 'ec2-18-209-187-54.compute-1.amazonaws.com',
+            database = 'd8hto9mvtubuln',
+            user = 'kmdvxvuvocjhha',
+            password = 'ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
+            port = 5432
+        )
+    except:
+        conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = 'd8hto9mvtubuln',
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+        )
+    cur = conn.cursor()
+    cur.execute(f"SELECT * FROM zikr WHERE date = '{date}'")
+    row = cur.fetchall()
+    completed = row[0][1]
+    #if completed == True:
+        #cur.execute(f"UPDATE zikr set complete = '0' where date = '{date}'")
+    if completed == False:
+        cur.execute(f"UPDATE zikr SET complete = '1' where date = '{date}'")
+    elif completed == True:
+        cur.execute(f"UPDATE zikr SET complete = '0' where date = '{date}'")
+
+    conn.commit()
+    conn.close()

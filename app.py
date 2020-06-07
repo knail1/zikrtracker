@@ -35,8 +35,9 @@ def index():
         try:
             create_post(date, complete, comment)
         except:
-            print('failed')
-    
+            update_zikr(date)
+        #finally:
+            #update row to change COMPLETED
     posts = get_posts()
     results = show_status(date)
 
