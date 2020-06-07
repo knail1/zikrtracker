@@ -120,7 +120,7 @@ def show_status(date):
             port = os.environ['DB_PORT']
         )
     cur = conn.cursor()
-    cur.execute("SELECT * FROM zikr WHERE complete='1' ORDER BY date ASC")
+    cur.execute("SELECT * FROM zikr WHERE complete='1' ORDER BY date DESC LIMIT 1")
     results = cur.fetchall()
     return results
 
