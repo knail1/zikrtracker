@@ -96,7 +96,7 @@ def get_posts():
         )
     cur = conn.cursor()
     try:
-        cur.execute("SELECT * FROM zikr")
+        cur.execute("SELECT * FROM zikr ORDER BY date DESC LIMIT 3")
         posts = cur.fetchall()
         return posts
     except:
