@@ -60,11 +60,18 @@
             <div style="position: absolute;top: 290px;right: -50;width: 200px;height: 100px;" class="posts">
                 <b>
                 <p>
+                    <table>
+                        <tr>
+                            <th><h3><u>Date</u></h3></th>
+                            <th><h3><u>Complete</u></h3></th>
+                        </tr>
                 {% for post in posts %}
-
-                    <div>{{ post[0] }} | {{ post[2].title() }} | {{ post[1] }}</div>
-
+                        <tr>
+                            <td>{{ post[0] }}</td>
+                            <td>{{ post[1] }}</td>
+                        </tr>
                 {% endfor %}
+                    </table>
                 </p>
                 </b>
             </div>

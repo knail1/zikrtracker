@@ -28,6 +28,6 @@
   text-align: center;
   display: inline-block;
 }
-.posts {
-  text-align: right;
+table {
+  background-color: green;
 }
