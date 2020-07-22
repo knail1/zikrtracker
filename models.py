@@ -6,12 +6,21 @@ import os
 
 def delete_table():
     try:
+<<<<<<< HEAD
         conn = psycopg2.connect(
             host=os.environ['DB_HOST'],
             database='d8hto9mvtubuln',
             user=os.environ['USER_NAME'],
             password=os.environ['PASSWORD'],
             port=os.environ['DB_PORT']
+=======
+        conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = os.environ['DB'],
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+>>>>>>> c8bb3cc261da1fc50586702bad42449d48e021f6
         )
     except:
         conn = psycopg2.connect(
@@ -31,12 +40,21 @@ def delete_table():
 def create_table():
 
     try:
+<<<<<<< HEAD
         conn = psycopg2.connect(
             host=os.environ['DB_HOST'],
             database='d8hto9mvtubuln',
             user=os.environ['USER_NAME'],
             password=os.environ['PASSWORD'],
             port=os.environ['DB_PORT']
+=======
+        conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = os.environ['DB'],
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+>>>>>>> c8bb3cc261da1fc50586702bad42449d48e021f6
         )
     except:
         conn = psycopg2.connect(
@@ -56,11 +74,19 @@ def create_table():
 def create_post(date, complete, comment):
     try:
         conn = psycopg2.connect(
+<<<<<<< HEAD
             host=os.environ['DB_HOST'],
             database='d8hto9mvtubuln',
             user=os.environ['USER_NAME'],
             password=os.environ['PASSWORD'],
             port=os.environ['DB_PORT']
+=======
+            host = os.environ['DB_HOST'],
+            database = os.environ['DB'],
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+>>>>>>> c8bb3cc261da1fc50586702bad42449d48e021f6
         )
     except:
         conn = psycopg2.connect(
@@ -82,12 +108,21 @@ def create_post(date, complete, comment):
 
 def get_posts():
     try:
+<<<<<<< HEAD
         conn = psycopg2.connect(
             host=os.environ['DB_HOST'],
             database='d8hto9mvtubuln',
             user=os.environ['USER_NAME'],
             password=os.environ['PASSWORD'],
             port=os.environ['DB_PORT']
+=======
+        conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = os.environ['DB'],
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+>>>>>>> c8bb3cc261da1fc50586702bad42449d48e021f6
         )
     except:
         conn = psycopg2.connect(
@@ -108,12 +143,21 @@ def get_posts():
 
 def show_status(date):
     try:
+<<<<<<< HEAD
         conn = psycopg2.connect(
             host=os.environ['DB_HOST'],
             database='d8hto9mvtubuln',
             user=os.environ['USER_NAME'],
             password=os.environ['PASSWORD'],
             port=os.environ['DB_PORT']
+=======
+        conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = os.environ['DB'],
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+>>>>>>> c8bb3cc261da1fc50586702bad42449d48e021f6
         )
     except:
         conn = psycopg2.connect(
@@ -134,12 +178,21 @@ def show_status(date):
 
 def update_zikr(date):
     try:
+<<<<<<< HEAD
         conn = psycopg2.connect(
             host=os.environ['DB_HOST'],
             database='d8hto9mvtubuln',
             user=os.environ['USER_NAME'],
             password=os.environ['PASSWORD'],
             port=os.environ['DB_PORT']
+=======
+        conn = psycopg2.connect(    
+            host = os.environ['DB_HOST'],
+            database = os.environ['DB'],
+            user = os.environ['USER_NAME'],
+            password = os.environ['PASSWORD'],
+            port = os.environ['DB_PORT']
+>>>>>>> c8bb3cc261da1fc50586702bad42449d48e021f6
         )
     except:
         conn = psycopg2.connect(
