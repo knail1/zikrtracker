@@ -14,14 +14,7 @@ def delete_table():
             port=os.environ['DB_PORT']
         )
     except:
-        conn = psycopg2.connect(
-            host='ec2-18-209-187-54.compute-1.amazonaws.com',
-            database='d8hto9mvtubuln',
-            user='kmdvxvuvocjhha',
-            password='ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port=5432
-
-        )
+        print('Could not connect')
     cur = conn.cursor()
     cur.execute("DELETE FROM zikr")
     conn.commit()
@@ -39,13 +32,7 @@ def create_table():
             port=os.environ['DB_PORT']
         )
     except:
-        conn = psycopg2.connect(
-            host='ec2-18-209-187-54.compute-1.amazonaws.com',
-            database='d8hto9mvtubuln',
-            user='kmdvxvuvocjhha',
-            password='ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port=5432
-        )
+        print('Could not connect')
     cur = conn.cursor()
     cur.execute(
         "CREATE TABLE IF NOT EXISTS zikr (date DATE NOT NULL PRIMARY KEY, complete BOOLEAN NOT NULL, comment VARCHAR(150))")
@@ -63,13 +50,7 @@ def create_post(date, complete, comment):
             port=os.environ['DB_PORT']
         )
     except:
-        conn = psycopg2.connect(
-            host='ec2-18-209-187-54.compute-1.amazonaws.com',
-            database='d8hto9mvtubuln',
-            user='kmdvxvuvocjhha',
-            password='ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port=5432
-        )
+        print('Could not connect')
     cur = conn.cursor()
 
     cur.execute(
@@ -90,13 +71,7 @@ def get_posts():
             port=os.environ['DB_PORT']
         )
     except:
-        conn = psycopg2.connect(
-            host='ec2-18-209-187-54.compute-1.amazonaws.com',
-            database='d8hto9mvtubuln',
-            user='kmdvxvuvocjhha',
-            password='ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port=5432
-        )
+        print('Could not connect')
     cur = conn.cursor()
     try:
         cur.execute("SELECT * FROM zikr ORDER BY date DESC LIMIT 3")
@@ -142,13 +117,7 @@ def update_zikr(date):
             port=os.environ['DB_PORT']
         )
     except:
-        conn = psycopg2.connect(
-            host='ec2-18-209-187-54.compute-1.amazonaws.com',
-            database='d8hto9mvtubuln',
-            user='kmdvxvuvocjhha',
-            password='ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port=5432
-        )
+        print('Could not connect')
     cur = conn.cursor()
     cur.execute(f"SELECT * FROM zikr WHERE date = '{date}'")
     row = cur.fetchall()
