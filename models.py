@@ -7,7 +7,7 @@ def delete_table():
     try:
         conn = psycopg2.connect(    
             host = os.environ['DB_HOST'],
-            database = 'd8hto9mvtubuln',
+            database = os.environ['DB'],
             user = os.environ['USER_NAME'],
             password = os.environ['PASSWORD'],
             port = os.environ['DB_PORT']
@@ -25,7 +25,7 @@ def create_table():
     try:
         conn = psycopg2.connect(    
             host = os.environ['DB_HOST'],
-            database = 'd8hto9mvtubuln',
+            database = os.environ['DB'],
             user = os.environ['USER_NAME'],
             password = os.environ['PASSWORD'],
             port = os.environ['DB_PORT']
@@ -44,7 +44,7 @@ def create_post(date, complete, comment):
     try:
         conn = psycopg2.connect(
             host = os.environ['DB_HOST'],
-            database = 'd8hto9mvtubuln',
+            database = os.environ['DB'],
             user = os.environ['USER_NAME'],
             password = os.environ['PASSWORD'],
             port = os.environ['DB_PORT']
@@ -63,7 +63,7 @@ def get_posts():
     try:
         conn = psycopg2.connect(    
             host = os.environ['DB_HOST'],
-            database = 'd8hto9mvtubuln',
+            database = os.environ['DB'],
             user = os.environ['USER_NAME'],
             password = os.environ['PASSWORD'],
             port = os.environ['DB_PORT']
@@ -82,7 +82,7 @@ def show_status(date):
     try:
         conn = psycopg2.connect(    
             host = os.environ['DB_HOST'],
-            database = 'd8hto9mvtubuln',
+            database = os.environ['DB'],
             user = os.environ['USER_NAME'],
             password = os.environ['PASSWORD'],
             port = os.environ['DB_PORT']
@@ -101,7 +101,7 @@ def update_zikr(date):
     try:
         conn = psycopg2.connect(    
             host = os.environ['DB_HOST'],
-            database = 'd8hto9mvtubuln',
+            database = os.environ['DB'],
             user = os.environ['USER_NAME'],
             password = os.environ['PASSWORD'],
             port = os.environ['DB_PORT']
