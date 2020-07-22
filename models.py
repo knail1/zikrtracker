@@ -91,13 +91,8 @@ def show_status(date):
             port=os.environ['DB_PORT']
         )
     except:
-        conn = psycopg2.connect(
-            host='ec2-18-209-187-54.compute-1.amazonaws.com',
-            database='d8hto9mvtubuln',
-            user='kmdvxvuvocjhha',
-            password='ac9a4385919971b6c4d5695d7dce03df8a45e3cc9a8f31f78a985593754222f3',
-            port=5432
-        )
+        print('Could not connect')
+
     cur = conn.cursor()
     cur.execute(
         "SELECT * FROM zikr WHERE complete='1' ORDER BY date DESC LIMIT 1")
