@@ -28,6 +28,15 @@
   text-align: center;
   display: inline-block;
 }
-table {
-  background-color: green;
+.posts {
+  color: green;
+  position: absolute;
+  top: 200px;
+  right: 50px;
+  width: 300px;
+  height: 100px;
+}
+.latest-zikr {
+  color: green;
+  position: center;
 }

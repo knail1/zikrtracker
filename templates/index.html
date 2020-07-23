@@ -26,13 +26,16 @@
                 <label for="date"><h3><u><strong>Choose Date</strong></u></h3></label><br>
                 <input type="date" id="date" name="date" required>
                 <br><br><br><br>
-                <p>
-                    <h2>Latest Tracked Zikr</h2>
-                    {% for result in results %}
-                    <u><b><div>{{ result[0] }}</div></b></u>
-                    <div>{{ "Zikr Logged" }}</div>
-                    {% endfor %}
-                </p>
+                <div class="latest-zikr">
+                    <p>
+                        <h2>Latest Tracked Zikr</h2>
+                        {% for result in results %}
+                        <u><b><div>{{ result[0] }}</div></b></u>
+                        <div>{{ "Zikr Logged" }}</div>
+                        <span>{{ result[2] }}</span>
+                        {% endfor %}
+                    </p>
+                </div>
                 <br><br>
                 <div class='commenttext'>
                     <input placeholder='Comment' name="comment">
@@ -57,18 +60,20 @@
 
         
         
-            <div style="position: absolute;top: 290px;right: -50;background-color:green;width: 200px;height: 100px;" class="posts">
+            <div class="posts">
                 <b>
                 <p>
                     <table>
                         <tr>
                             <th><h3><u>Date</u></h3></th>
                             <th><h3><u>Complete</u></h3></th>
+                            <th><h3><u>Comment</u></h3></th>
                         </tr>
                 {% for post in posts %}
                         <tr>
                             <td>{{ post[0] }}</td>
                             <td>{{ post[1] }}</td>
+                            <td>{{ post[2] }}</td>
                         </tr>
                 {% endfor %}
                     </table>
